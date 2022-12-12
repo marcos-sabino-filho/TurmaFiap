@@ -48,8 +48,8 @@ namespace Projeto.Testes
 
             #endregion
 
-            Projeto.Data.Repositorio.Alunos alunosRepo =
-                new Data.Repositorio.Alunos(_treinamentoContext.Object);
+            Projeto.Data.Repositorio.AlunoRepositorio alunosRepo =
+                new Data.Repositorio.AlunoRepositorio(_treinamentoContext.Object);
 
             List<Projeto.Data.Entidades.Aluno> listaAlunos =
                 alunosRepo.ListarTodos();

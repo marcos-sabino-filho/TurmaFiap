@@ -19,8 +19,8 @@ namespace ProjetoTurmaFiap
                 Projeto.Data.Repositorio.TurmaRepositorio>();
 
             builder.Services.AddScoped<
-                Projeto.Data.Interfaces.IAlunos,
-                Projeto.Data.Repositorio.Alunos>();
+                Projeto.Data.Interfaces.IAlunoRepositorio,
+                Projeto.Data.Repositorio.AlunoRepositorio>();
 
             builder.Services.AddCors(options =>
             {

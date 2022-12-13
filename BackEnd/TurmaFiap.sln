@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjetoTurmaFiap", "Projeto
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projeto.Data", "Projeto.Data\Projeto.Data.csproj", "{20DE723C-0936-4B9E-81DF-C73E1A7F1BC2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projeto.Testes", "Projeto.Testes\Projeto.Testes.csproj", "{1021C4F7-E2E0-45B5-8390-D28D788B1823}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projeto.Testes", "Projeto.Testes\Projeto.Testes.csproj", "{1021C4F7-E2E0-45B5-8390-D28D788B1823}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

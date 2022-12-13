@@ -1,0 +1,20 @@
+<div>
+  <div>
+    <h1>Lista de Tarefas</h1>
+    <div>
+      <input type="text" placeholder="Adicionar tarefa" name="tarefa" #nomeTarefa>
+      <span (click)="adicionarTarefa(nomeTarefa.value);">
+        <i>add</i>
+      </span>
+    </div>
+  </div>
+  <div>
+    <ul>
+      <li *ngFor="let itemdoarray of tarefasArray">{{itemdoarray}}
+        <i (click)="removerTarefa(itemdoarray);">apagar</i>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

@@ -1,4 +1,5 @@
-﻿using Projeto.Data.Dto;
+﻿using Projeto.Data.Contexto;
+using Projeto.Data.Dto;
 using Projeto.Data.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -19,17 +20,67 @@ namespace Projeto.Data.Repositorio
 
         public int Atualizar(TurmaCadastrarDto cadastrarDto)
         {
-            throw new NotImplementedException();
+            Entidades.Turma turmaEntidadeBanco =
+                (from c in _contexto.Turmas
+                 where c.Id == cadastrarDto.Id
+                 select c)
+                 ?.FirstOrDefault()
+                 ?? new Entidades.Turma();
+
+            // TRATAMENTO DE ERRO
+            // CASO NÃO ACHE O ID PARA ATUALIZAR, RETORNA VALOR 0. 
+            // OU SEJA, NÃO ATUALIZOU NENHUM CADASTRO
+            if (turmaEntidadeBanco == null || DBNull.Value.Equals(turmaEntidadeBanco.Id) || turmaEntidadeBanco.Id == 0)
+            {
+                return 0;
+            }
+
+            Entidades.Turma turmaEntidade = new Entidades.Turma()
+            {
+                Nome = cadastrarDto.Nome,
+                Descricao = cadastrarDto.Descricao,
+                PeriodoInicio = cadastrarDto.PeriodoInicio,
+                PeriodoFim = cadastrarDto.PeriodoFim
+            };
+
+            _contexto.ChangeTracker.Clear();
+            _contexto.Turmas.Add(turmaEntidade);
+            return _contexto.SaveChanges();
         }
 
         public int Cadastrar(TurmaCadastrarDto cadastrarDto)
         {
-            throw new NotImplementedException();
+            Entidades.Turma turmaEntidade = new Entidades.Turma()
+            {
+                Nome = cadastrarDto.Nome,
+                Descricao = cadastrarDto.Descricao,
+                PeriodoInicio = cadastrarDto.PeriodoInicio,
+                PeriodoFim = cadastrarDto.PeriodoFim
+            };
+
+            _contexto.ChangeTracker.Clear();
+            _contexto.Turmas.Add(turmaEntidade);
+            return _contexto.SaveChanges();
         }
 
         public int Excluir(int Id)
         {
-            throw new NotImplementedException();
+            Entidades.Turma turmaEntidadeBanco =
+                (from c in _contexto.Turmas
+                 where c.Id == Id
+                 select c).FirstOrDefault();
+
+            // TRATAMENTO DE ERRO
+            // CASO NÃO ACHE O ID PARA ATUALIZAR, RETORNA VALOR 0. 
+            // OU SEJA, NÃO ATUALIZOU NENHUM CADASTRO
+            if (turmaEntidadeBanco == null || DBNull.Value.Equals(turmaEntidadeBanco.Id) || turmaEntidadeBanco.Id == 0)
+            {
+                return 0;
+            }
+
+            _contexto.ChangeTracker.Clear();
+            _contexto.Turmas.Remove(turmaEntidadeBanco);
+            return _contexto.SaveChanges();
         }
 
         public List<Dto.TurmaDto> ListarTodas()
@@ -43,7 +94,15 @@ namespace Projeto.Data.Repositorio
 
         public TurmaDto PorId(int id)
         {
-            throw new NotImplementedException();
+            return (from t in _contexto.Turmas
+                    where t.Id == id
+                    select new Dto.TurmaDto()
+                    {
+                        Chave = t.Id,
+                        Nome = t.Nome
+                    })
+                    ?.FirstOrDefault()
+                    ?? new TurmaDto();
         }
     }
 }

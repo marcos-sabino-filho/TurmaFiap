@@ -37,14 +37,22 @@ namespace ProjetoTurmaFiap.Controllers
         }
 
         [HttpGet]
-        [Route("/PorId")]
+        [Route("/PorId/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Projeto.Data.Dto.TurmaDto))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult PorId(int id)
         {
+            if (id < 1)
+                return NoContent();
+
             try
             {
-                return Ok(_turmaRepositorio.PorId(id));
+                TurmaDto resultado = _turmaRepositorio.PorId(id);
+
+                if (resultado == null)
+                    return NoContent();
+
+                return Ok(resultado);
             }
             catch (Exception ex)
             {
@@ -58,6 +66,9 @@ namespace ProjetoTurmaFiap.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult Cadastrar(AlunoCadastrarDto cadastrarDto)
         {
+            if (cadastrarDto == null || String.IsNullOrEmpty(cadastrarDto.Nome))
+                return NoContent();
+
             return BadRequest();
         }
 
@@ -67,6 +78,9 @@ namespace ProjetoTurmaFiap.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult Atualizar(AlunoCadastrarDto cadastrarDto)
         {
+            if (cadastrarDto == null || cadastrarDto.Id < 1)
+                return NoContent();
+
             return BadRequest();
         }
 
@@ -76,6 +90,9 @@ namespace ProjetoTurmaFiap.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult Excluir(int id)
         {
+            if (id < 1)
+                return NoContent();
+
             return BadRequest();
         }
 

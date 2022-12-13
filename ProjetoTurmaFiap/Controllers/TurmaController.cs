@@ -24,11 +24,23 @@ namespace ProjetoTurmaFiap.Controllers
         [Route("/ListarTodas")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<Projeto.Data.Dto.TurmaDto>))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult ListarTodos()
+        public IActionResult ListarTodas()
         {
             try
             {
-                return Ok(_turmaRepositorio.ListarTodas());
+                List<TurmaDto> resultado = _turmaRepositorio.ListarTodas();
+
+                if(resultado == null)
+                {
+                    return NoContent();
+                }
+
+                if (resultado.Count == 0)
+                {
+                    throw new Exception("Sem elementos");
+                }
+
+                return Ok(resultado);
             }
             catch (Exception ex)
             {

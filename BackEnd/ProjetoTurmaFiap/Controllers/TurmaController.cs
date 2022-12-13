@@ -85,10 +85,10 @@ namespace ProjetoTurmaFiap.Controllers
         }
 
         [HttpPatch]
-        [Route("/Atualizar")]
+        [Route("/AtualizarTurma")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(int))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult Atualizar(AlunoCadastrarDto cadastrarDto)
+        public IActionResult AtualizarTurma(AlunoCadastrarDto cadastrarDto)
         {
             if (cadastrarDto == null || cadastrarDto.Id < 1)
                 return NoContent();

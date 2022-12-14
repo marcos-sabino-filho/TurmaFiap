@@ -1,0 +1,5 @@
+<h1>Detalhe da Tarefa {{tarefaDto.nome}}</h1>
+<div *ngIf="tarefaDto">
+    <input type="text" placeholder="Nome da Tarefa" [(ngModel)]="tarefaDto.nome">
+    <i class="material-icons" (click)="AtualizarTarefa();">check</i>
+</div>

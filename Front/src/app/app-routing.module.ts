@@ -1,3 +1,4 @@
+import { AlunosEditarComponent } from './alunos-editar/alunos-editar.component';
 import { AlunosListaComponent } from './alunos-lista/alunos-lista.component';
 import { TarefaEditarComponent } from './tarefa-editar/tarefa-editar.component';
 import { TarefasListaComponent } from './tarefas-lista/tarefas-lista.component';
@@ -8,6 +9,7 @@ const routes: Routes = [
   { path: 'lista', component: TarefasListaComponent },
   { path: 'editar/:id', component: TarefaEditarComponent },
   { path: 'listaalunos', component: AlunosListaComponent },
+  { path: 'editarAluno/:id', component: AlunosEditarComponent},
   { path: '**', redirectTo: 'lista' }
 ];
 

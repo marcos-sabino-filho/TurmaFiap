@@ -11,6 +11,7 @@ import { TarefasListaComponent } from './tarefas-lista/tarefas-lista.component';
 import { TarefaEditarComponent } from './tarefa-editar/tarefa-editar.component';
 import { AlunosListaComponent } from './alunos-lista/alunos-lista.component';
 import { AlunosDetalheComponent } from './alunos-detalhe/alunos-detalhe.component';
+import { AlunosEditarComponent } from './alunos-editar/alunos-editar.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AlunosDetalheComponent } from './alunos-detalhe/alunos-detalhe.componen
     TarefasListaComponent,
     TarefaEditarComponent,
     AlunosListaComponent,
-    AlunosDetalheComponent
+    AlunosDetalheComponent,
+    AlunosEditarComponent
   ],
   imports: [
     BrowserModule,

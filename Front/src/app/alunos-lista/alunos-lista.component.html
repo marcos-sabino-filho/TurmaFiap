@@ -14,7 +14,7 @@
       <ul class="list-unstyled">
         <li *ngFor="let alunoItem of listaAlunos">{{alunoItem.nome}}
           <i class="material-icons" (click)="removerAluno(alunoItem.id);">delete</i>
-          <!-- <i class="material-icons" (click)="editarTarefa(itemdoarray.id);">edit</i> -->
+          <i class="material-icons" (click)="editarAluno(alunoItem.id);">edit</i>
           <i class="material-icons" (click)="detalhar(alunoItem.id);">visibility</i>
         </li>
       </ul>

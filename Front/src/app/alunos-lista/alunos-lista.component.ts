@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { map } from 'rxjs';
@@ -13,7 +14,7 @@ export class AlunosListaComponent {
   alunoSelecionado!: IAlunoDto;
   telaParaApresentar = 'lista';
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     this.listarTodos();
   }
 
@@ -57,6 +58,10 @@ export class AlunosListaComponent {
         console.log(`Linhas executadas no método de remover do banco ${JSON.stringify(data)}`);
         this.listarTodos();
       });
+  }
+
+  editarAluno(id: number) {
+    this.router.navigate([`editarAluno/${id}`]);
   }
 
 }

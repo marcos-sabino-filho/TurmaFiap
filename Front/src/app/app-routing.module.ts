@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'lista', component: TarefasListaComponent },
   { path: 'editar/:id', component: TarefaEditarComponent },
   { path: 'listaalunos', component: AlunosListaComponent },
+  { path: 'editarAluno', component: AlunosEditarComponent},
   { path: 'editarAluno/:id', component: AlunosEditarComponent},
   { path: '**', redirectTo: 'lista' }
 ];

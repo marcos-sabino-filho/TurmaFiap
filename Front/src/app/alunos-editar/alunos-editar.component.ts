@@ -8,18 +8,29 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './alunos-editar.component.html',
   styleUrls: ['./alunos-editar.component.css']
 })
-export class AlunosEditarComponent implements OnInit{
+export class AlunosEditarComponent implements OnInit {
   aluno!: IAlunoDto;
+  idRecebido!: number;
 
-  constructor(private http:HttpClient, private route: ActivatedRoute, private router: Router){
-    let idRecebido: number;
+  constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) {
     this.route.paramMap.subscribe(params => {
-      idRecebido = Number(params.get('id'));
+      this.idRecebido = Number(params.get('id'));
     });
   }
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.aluno = {
+      id: this.idRecebido ?? 0,
+      nome: '',
+      documento: '',
+      aniversario: '',
+      matricula: '',
+      ultimoNome: ''
+    }
+  }
+
+  salvar() {
+    console.log(`Objeto para salvar: ${JSON.stringify(this.aluno)}`);
   }
 
 }

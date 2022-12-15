@@ -1,7 +1,41 @@
-<p>Nome do Aluno: {{aluno.nome}}</p>
-<p>Ultimo nome : {{aluno.ultimoNome}}</p>
-<p>Numero do Documento: {{aluno.documento}}</p>
-<p>Matricula: {{aluno.matricula}}</p>
-<p>Aniversario: {{aluno.aniversario}}</p>
+<form>
+  <div class="container">
+    <div class="mb-3 row">
+      <label for="nomeAluno" class="col-sm-4 col-form-label">Nome do Aluno</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" id="nomeAluno" [(ngModel)]="aluno.nome" name="nome">
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="ultimoNome" class="col-sm-4 col-form-label">Ultimo nome</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" id="ultimoNome" [(ngModel)]="aluno.ultimoNome" name="ultimoNome">
+      </div>
+    </div>
 
-<button (click)="fechar()">fechar</button>
+    <div class="mb-3 row">
+      <label for="documento" class="col-sm-4 col-form-label">Numero do Documento</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" id="documento" [(ngModel)]="aluno.documento" name="documento">
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <label for="matricula" class="col-sm-4 col-form-label">Matricula</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" id="matricula" [(ngModel)]="aluno.matricula" name="matricul">
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <label for="aniversario" class="col-sm-4 col-form-label">Aniversario</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" id="aniversario" [(ngModel)]="aluno.aniversario" name="aniversario">
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <button (click)="fechar()">fechar</button>
+    </div>
+  </div>
+</form>

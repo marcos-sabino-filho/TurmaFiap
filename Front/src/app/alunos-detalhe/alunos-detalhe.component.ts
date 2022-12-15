@@ -10,12 +10,14 @@ export class AlunosDetalheComponent {
   @Input() aluno!: IAlunoDto;
   @Input() fecharDetalhe!: () => void;
 
-  constructor() {
+  constructor() { }
 
+  fechar() {
+    this.fecharDetalhe();
   }
 
-  fechar(){
-    this.fecharDetalhe();
+  salvar() {
+
   }
 
 }

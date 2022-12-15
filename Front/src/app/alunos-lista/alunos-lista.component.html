@@ -1,0 +1,30 @@
+<div *ngIf="telaParaApresentar=='lista'">
+  <form #formularioTarefa="ngForm">
+    <div class="form-group">
+      <h1 class="text-center">Lista de Alunos</h1>
+      <!-- <div class="input-group-prepend">
+        <input type="text" placeholder="Adicionar tarefa" name="tarefa" #tarefa [(ngModel)]="tarefaNomeModel"
+          maxlength="5" class="form-control">
+        <span (click)="adicionarTarefa(tarefa.value);" class="input-group-text">
+          <i class="material-icons">add</i>
+        </span>
+      </div> -->
+    </div>
+    <div class="data">
+      <ul class="list-unstyled">
+        <li *ngFor="let alunoItem of listaAlunos">{{alunoItem.nome}}
+          <i class="material-icons" (click)="removerAluno(alunoItem.id);">delete</i>
+          <!-- <i class="material-icons" (click)="editarTarefa(itemdoarray.id);">edit</i> -->
+          <i class="material-icons" (click)="detalhar(alunoItem.id);">visibility</i>
+        </li>
+      </ul>
+    </div>
+  </form>
+</div>
+
+<app-alunos-detalhe
+ *ngIf="telaParaApresentar=='detalhe'"
+ [aluno]="alunoSelecionado"
+ [fecharDetalhe]="fecharDetalhes">
+
+</app-alunos-detalhe>

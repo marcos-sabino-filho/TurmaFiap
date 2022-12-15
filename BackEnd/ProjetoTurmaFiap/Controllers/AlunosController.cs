@@ -169,17 +169,20 @@ namespace ProjetoTurmaFiap.Controllers
         [Route("/Delete")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(int))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult Delete(Projeto.Data.Entidades.Aluno aluno)
+        public IActionResult Delete(int id)
         {
             try
             {
                 SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("Sql"));
 
-                if (aluno.Aniversario == DateTime.MinValue)
-                    aluno.Aniversario = null;
+                var dynamicParameters = new DynamicParameters();
+                dynamicParameters.Add("@Id", id);
+
+                //if (aluno.Aniversario == DateTime.MinValue)
+                //    aluno.Aniversario = null;
 
                 int linhasAfetadas = connection.Execute(
-                      "DELETE FROM [dbo].[Alunos] WHERE Id = @Id", aluno);
+                      "DELETE FROM [dbo].[Alunos] WHERE Id = @Id", dynamicParameters);
 
                 return Ok(linhasAfetadas);
             }

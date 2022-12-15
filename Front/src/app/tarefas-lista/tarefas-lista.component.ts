@@ -29,10 +29,13 @@ export class TarefasListaComponent {
   idBancoFake: number = 1;
   tarefaNomeModel: string = '';
   @ViewChild("tarefa") inputNomeTarefa!: ElementRef;
+  tarefaSelecionada!: ITarefaDto;
+  telaParaApresentar: string = 'lista';
+  storageInfo!: Storage;
 
   adicionarTarefa(valor: string) {
-
     this.listaTarefaTipada.push({ id: this.idBancoFake, nome: valor });
+    // this.storageInfo.setItem('listaDeTarefas', JSON.stringify(this.listaTarefaTipada));
 
     this.idBancoFake++;
     console.log(`Adicionando a tarefa: ${valor}`);
@@ -57,9 +60,26 @@ export class TarefasListaComponent {
   }
 
   editarTarefa(id: number) {
-    this.router.navigate([`detalhe/${id}`]);
+    this.router.navigate([`editar/${id}`]);
+  }
+
+  detalharTarefa(id: number) {
+    this.telaParaApresentar = 'detalhe';
+
+    for (let i = 0; i < this.listaTarefaTipada.length; i++) {
+      if (id == this.listaTarefaTipada[i].id) {
+        this.tarefaSelecionada = this.listaTarefaTipada[i];
+        break;
+      }
+    }
+  }
+
+  public fecharDetalhes = () => {
+    this.telaParaApresentar = 'lista';
+    // this.listaTarefaTipada= JSON.parse(this.storageInfo.getItem('listaDeTarefas') as string) as ITarefaDto[];
   }
 
   constructor(private router: Router) {
+    this.storageInfo = window.localStorage;
   }
 }

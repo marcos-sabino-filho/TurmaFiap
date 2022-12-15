@@ -1,0 +1,10 @@
+
+form {
+  max-width: 50%;
+  margin-left: 300px;
+  margin-top: 200px;
+  position: relative;
+  background: #f4f4f4;
+  padding: 30px;
+  overflow: hidden;
+}

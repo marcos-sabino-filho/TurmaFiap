@@ -25,8 +25,11 @@ form input[type=text]::placeholder {
   color: #666;
 }
 
+/* barra de rolagem */
 form .data {
   margin-top: 1em;
+  height: 500px;
+  overflow-y: auto;
 }
 
 form .data li {

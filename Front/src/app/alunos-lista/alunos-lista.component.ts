@@ -64,4 +64,8 @@ export class AlunosListaComponent {
     this.router.navigate([`editarAluno/${id}`]);
   }
 
+  adicionarAluno(){
+    this.router.navigate([`editarAluno`]);
+  }
+
 }

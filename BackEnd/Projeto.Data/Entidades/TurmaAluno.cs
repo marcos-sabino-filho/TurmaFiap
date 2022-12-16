@@ -13,7 +13,7 @@ public partial class TurmaAluno
 
     public DateTime? PeriodoFim { get; set; }
 
-    public virtual Aluno IdAlunoNavigation { get; set; } = null!;
+    //public virtual Aluno IdAlunoNavigation { get; set; } = null!;
 
-    public virtual Turma IdTurmaNavigation { get; set; } = null!;
+    //public virtual Turma IdTurmaNavigation { get; set; } = null!;
 }

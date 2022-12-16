@@ -2,13 +2,13 @@
   <form #formularioTarefa="ngForm">
     <div class="form-group">
       <h1 class="text-center">Lista de Alunos</h1>
-      <!-- <div class="input-group-prepend">
-        <input type="text" placeholder="Adicionar tarefa" name="tarefa" #tarefa [(ngModel)]="tarefaNomeModel"
-          maxlength="5" class="form-control">
-        <span (click)="adicionarTarefa(tarefa.value);" class="input-group-text">
+      <div class="input-group-prepend">
+        <!-- <input type="text" placeholder="Adicionar tarefa" name="tarefa" #tarefa [(ngModel)]="tarefaNomeModel"
+          maxlength="5" class="form-control"> -->
+        <span (click)="adicionarAluno();" class="input-group-text">
           <i class="material-icons">add</i>
         </span>
-      </div> -->
+      </div>
     </div>
     <div class="data">
       <ul class="list-unstyled">
@@ -22,9 +22,6 @@
   </form>
 </div>
 
-<app-alunos-detalhe
- *ngIf="telaParaApresentar=='detalhe'"
- [aluno]="alunoSelecionado"
- [fecharDetalhe]="fecharDetalhes">
+<app-alunos-detalhe *ngIf="telaParaApresentar=='detalhe'" [aluno]="alunoSelecionado" [fecharDetalhe]="fecharDetalhes">
 
 </app-alunos-detalhe>

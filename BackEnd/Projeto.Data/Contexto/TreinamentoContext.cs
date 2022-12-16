@@ -74,15 +74,15 @@ public partial class TreinamentoContext : DbContext
             entity.Property(e => e.PeriodoFim).HasColumnType("datetime");
             entity.Property(e => e.PeriodoInicio).HasColumnType("datetime");
 
-            entity.HasOne(d => d.IdAlunoNavigation).WithMany(p => p.TurmaAlunos)
-                .HasForeignKey(d => d.IdAluno)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Turma_Alunos_Alunos");
+            //entity.HasOne(d => d.IdAlunoNavigation).WithMany(p => p.TurmaAlunos)
+            //    .HasForeignKey(d => d.IdAluno)
+            //    .OnDelete(DeleteBehavior.ClientSetNull)
+            //    .HasConstraintName("FK_Turma_Alunos_Alunos");
 
-            entity.HasOne(d => d.IdTurmaNavigation).WithMany(p => p.TurmaAlunos)
-                .HasForeignKey(d => d.IdTurma)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Turma_Alunos_Turma");
+            //entity.HasOne(d => d.IdTurmaNavigation).WithMany(p => p.TurmaAlunos)
+            //    .HasForeignKey(d => d.IdTurma)
+            //    .OnDelete(DeleteBehavior.ClientSetNull)
+            //    .HasConstraintName("FK_Turma_Alunos_Turma");
         });
 
         modelBuilder.Entity<VwTurmasDoAluno>(entity =>

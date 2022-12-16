@@ -128,9 +128,21 @@ namespace ProjetoTurmaFiap.Controllers
 
                 Projeto.Data.Entidades.Aluno aluno =
                     connection.Query<Projeto.Data.Entidades.Aluno>(
-                        "Select Id,Nome from Alunos where Id = @Id",
+                        "SELECT [Id]" +
+                        "      ,[Nome]" +
+                        "      ,[UltimoNome]" +
+                        "      ,[Aniversario]" +
+                        "      ,[Documento]" +
+                        "      ,[Matricula]" +
+                        "  FROM [dbo].[Alunos]" +
+                        " where Id = @Id",
                         dynamicParameters
                         ).FirstOrDefault();
+
+                if (aluno == null || aluno.Id == 0)
+                {
+                    return NoContent();
+                }
                 return Ok(aluno);
             }
             catch (Exception ex)

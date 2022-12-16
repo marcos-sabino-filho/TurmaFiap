@@ -12,6 +12,7 @@ import { TarefaEditarComponent } from './tarefa-editar/tarefa-editar.component';
 import { AlunosListaComponent } from './alunos-lista/alunos-lista.component';
 import { AlunosDetalheComponent } from './alunos-detalhe/alunos-detalhe.component';
 import { AlunosEditarComponent } from './alunos-editar/alunos-editar.component';
+import { TurmaAlunosComponent } from './turma-alunos/turma-alunos.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AlunosEditarComponent } from './alunos-editar/alunos-editar.component';
     TarefaEditarComponent,
     AlunosListaComponent,
     AlunosDetalheComponent,
-    AlunosEditarComponent
+    AlunosEditarComponent,
+    TurmaAlunosComponent
   ],
   imports: [
     BrowserModule,

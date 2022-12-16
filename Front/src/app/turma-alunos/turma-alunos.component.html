@@ -1,0 +1,29 @@
+<form>
+  <div class="container">
+    <div class="mb-3 row">
+      <label for="nomeAluno" class="col-sm-4 col-form-label">Nome do Aluno</label>
+      <div class="col-sm-6">
+        <select [(ngModel)]="idAlunoSelecionado" name="idAlunoSelecionado">
+          <option value="0"> -- SELECIONE --</option>
+          <option *ngFor="let aluno of listaAlunos" value="{{aluno.id}}">
+            {{aluno.nome}}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="ultimoNome" class="col-sm-4 col-form-label">Ultimo nome</label>
+      <div class="col-sm-6">
+        <select [(ngModel)]="idTurmaSelecionada" name="idTurmaSelecionada">
+          <option value="0"> -- SELECIONE --</option>
+          <option *ngFor="let turma of listaTurmas" value="{{turma.chave}}">
+            {{turma.nome}}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <button (click)="salvarAlteracao()">Salvar</button>
+    </div>
+  </div>
+</form>

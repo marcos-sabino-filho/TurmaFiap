@@ -27,10 +27,58 @@ export class AlunosEditarComponent implements OnInit {
       matricula: '',
       ultimoNome: ''
     }
+
+    // BUSCAR NA API OS DADOS DO ALUNO QUE RECEBEMOS O ID NA URL
+    if (this.idRecebido) {
+      this.http
+        .get(`https://localhost:7088/ListarPorId/${this.idRecebido}`)
+        .subscribe((data) => {
+          this.aluno = data as IAlunoDto;
+        });
+    }
+
   }
 
   salvar() {
-    console.log(`Objeto para salvar: ${JSON.stringify(this.aluno)}`);
+
+    if (this.validarInformacoes()) {
+      console.log(`Objeto para salvar: ${JSON.stringify(this.aluno)}`);
+
+      if (this.aluno.id == 0) {
+
+        // if(!this.aluno.aniversario || this.aluno.aniversario==''){
+        //   console.log('erro na data');
+        // this.aluno.aniversario = '0001-01-01';
+        // }
+
+        this.http.post('https://localhost:7088/cadastraraluno', this.aluno)
+          .subscribe((data) => {
+            this.router.navigate(['listaalunos']);
+          });
+
+      } else {
+        this.http.patch('https://localhost:7088/atualizar', this.aluno)
+          .subscribe((data) => {
+            this.router.navigate(['listaalunos']);
+          });
+      }
+
+    } else {
+      console.log('Erro na validação');
+      // TRATAMENTO DE ERRO
+      // ALERTA
+      // BORDA VERMELHA
+    }
+  }
+
+  validarInformacoes(): boolean {
+    if (this.aluno.nome == '') {
+      return false;
+    }
+
+    // VALIDAR COM REGEX
+
+    return true;
   }
 
 }

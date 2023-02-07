@@ -27,6 +27,16 @@ namespace Projeto.Data.Repositorio
                  ?.FirstOrDefault()
                  ?? new Entidades.Turma();
 
+            if (DBNull.Value.Equals(turmaEntidadeBanco.Nome))
+            {
+                // entra aqui
+            }
+
+            if (turmaEntidadeBanco.Nome == null)
+            {
+                // entra aqui
+            }
+
             // TRATAMENTO DE ERRO
             // CASO NÃO ACHE O ID PARA ATUALIZAR, RETORNA VALOR 0. 
             // OU SEJA, NÃO ATUALIZOU NENHUM CADASTRO

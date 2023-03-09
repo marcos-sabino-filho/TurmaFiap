@@ -24,6 +24,7 @@ namespace ProjetoTurmaFiap.Controllers
         [Route("/ListarTodas")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<Projeto.Data.Dto.TurmaDto>))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         public IActionResult ListarTodas()
         {
             try
@@ -61,8 +62,8 @@ namespace ProjetoTurmaFiap.Controllers
             {
                 TurmaDto resultado = _turmaRepositorio.PorId(id);
 
-                if (resultado == null)
-                    return NoContent();
+                if (resultado.Chave == 0)
+                    throw new Exception("Não existe o id procurado na base de dados");
 
                 return Ok(resultado);
             }

@@ -20,6 +20,13 @@ namespace Projeto.Data.Repositorio
 
         public int Atualizar(TurmaCadastrarDto cadastrarDto)
         {
+
+            //Entidades.Turma turmaEntidadeBanco = 
+            //    _contexto.Turmas.Where(
+            //        c => c.Id == cadastrarDto.Id)
+            //    ?.FirstOrDefault()
+            //     ?? new Entidades.Turma();
+
             Entidades.Turma turmaEntidadeBanco =
                 (from c in _contexto.Turmas
                  where c.Id == cadastrarDto.Id

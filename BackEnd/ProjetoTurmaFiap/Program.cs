@@ -26,6 +26,8 @@ namespace ProjetoTurmaFiap
                 Projeto.Data.Interfaces.IturmaAlunosRepositorio,
                 Projeto.Data.Repositorio.TurmaAlunosRepositorio>();
 
+            // builder.Services.AddSingleton
+
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy("MinhaRegraCors",

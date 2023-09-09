@@ -1,12 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Projeto.Testes
+﻿namespace Projeto.Testes
 {
     [TestClass]
     public class AlunoControllerTest

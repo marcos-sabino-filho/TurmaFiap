@@ -1,9 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Dapper;
 using Microsoft.AspNetCore.Mvc;
-using System.Data.SqlClient;
-using System.Text;
-using Dapper;
 using Microsoft.Data.SqlClient;
+using System.Text;
 
 namespace ProjetoTurmaFiap.Controllers
 {

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Projeto.Data.Entidades;
+﻿namespace Projeto.Data.Entidades;
 
 public partial class Aluno
 {

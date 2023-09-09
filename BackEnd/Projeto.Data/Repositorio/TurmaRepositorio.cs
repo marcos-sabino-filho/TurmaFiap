@@ -1,11 +1,5 @@
-﻿using Projeto.Data.Contexto;
-using Projeto.Data.Dto;
+﻿using Projeto.Data.Dto;
 using Projeto.Data.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Projeto.Data.Repositorio
 {

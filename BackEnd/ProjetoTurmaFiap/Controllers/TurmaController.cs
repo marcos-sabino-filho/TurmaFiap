@@ -1,10 +1,5 @@
-﻿using Dapper;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Projeto.Data.Dto;
-using System.Data;
-using System.Data.SqlClient;
-using System.Text;
 
 namespace ProjetoTurmaFiap.Controllers
 {
@@ -31,7 +26,7 @@ namespace ProjetoTurmaFiap.Controllers
             {
                 List<TurmaDto> resultado = _turmaRepositorio.ListarTodas();
 
-                if(resultado == null)
+                if (resultado == null)
                 {
                     return NoContent();
                 }

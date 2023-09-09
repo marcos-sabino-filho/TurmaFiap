@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Projeto.Data.Dto
+﻿namespace Projeto.Data.Dto
 {
-    public  class TurmaDto
+    public class TurmaDto
     {
         public int Chave { get; set; }
 

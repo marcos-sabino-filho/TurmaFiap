@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Moq;
-using Projeto.Data.Contexto;
 
 namespace TesteXUnit
 {
@@ -129,7 +128,7 @@ namespace TesteXUnit
         }
 
         [Theory]
-        [InlineData(1,77)]
+        [InlineData(1, 77)]
         [InlineData(2, 77)]
         [InlineData(9, 77)]
         [InlineData(9999, 77)]

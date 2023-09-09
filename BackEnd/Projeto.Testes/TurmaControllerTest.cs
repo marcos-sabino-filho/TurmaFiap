@@ -1,8 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Moq;
-using Projeto.Data.Contexto;
-using System.Net.Sockets;
 
 namespace Projeto.Testes
 {
